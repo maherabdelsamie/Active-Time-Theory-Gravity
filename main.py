@@ -6,42 +6,60 @@ C = 299792458  # Speed of light in m/s
 delta_t = 5
 h = 6.62607015e-34  # Planck's constant in m^2 kg / s
 
+import numpy as np
+
+# Constants for the simulation
+C = 299792458  # Speed of light in m/s
+delta_t = 5  # Delay term for phi calculation
+h = 6.62607015e-34  # Planck's constant in m^2 kg / s
+
 class GlobalTime:
-    def __init__(self, use_ath=True):
+    def __init__(self, use_ath=True, particles=[]):
         self.phi_history = [0] * delta_t
         self.current_time = 0
         self.time_flow_rate = 1
         self.dt = 0.01
         self.time_flow_rates = []
-        self.use_ath = use_ath  # Determine if ATH effects are applied
+        self.use_ath = use_ath
+        self.particles = particles  # Reference to the particles in the simulation
 
-    def calculate_phi_derivative(self, energy_density):
+    def calculate_phi_derivative(self):
         if not self.use_ath:
             return 0  # No φ modulation if ATH is not applied
         phi_delayed = self.phi_history[-delta_t]
-        adaptive_factor = np.log1p(energy_density) * 0.05
-        return adaptive_factor - 0.1 * phi_delayed
+        
+        # Spontaneous fluctuations represented as random variables
+        s_t = np.random.normal(0, 1)  # Example: mean 0, std deviation 1
+        
+        # Calculate mean state and variance of particle states
+        states = np.array([p.state for p in self.particles])
+        mean_state = np.mean(states, axis=0)
+        variance = np.var(states, axis=0)
+        
+        # Generative faculty adjustment and system's state influence
+        phi_prime = s_t - 0.1 * phi_delayed + np.linalg.norm(mean_state) + np.linalg.norm(variance)
+        return phi_prime
 
-    def update_phi(self, energy_density):
-        k1 = self.dt * self.calculate_phi_derivative(energy_density)
-        k2 = self.dt * self.calculate_phi_derivative(energy_density)
-        k3 = self.dt * self.calculate_phi_derivative(energy_density)
-        k4 = self.dt * self.calculate_phi_derivative(energy_density)
+    def update_phi(self):
+        phi_prime = self.calculate_phi_derivative()
+        k1 = self.dt * phi_prime
+        k2 = self.dt * phi_prime  # Assuming phi_prime remains constant for simplicity
+        k3 = self.dt * phi_prime
+        k4 = self.dt * phi_prime
         phi_update = (k1 + 2*k2 + 2*k3 + k4) / 6
         self.phi_history.append(self.phi_history[-1] + phi_update)
         if len(self.phi_history) > delta_t:
             self.phi_history.pop(0)
 
     def update_time_flow(self):
-        if not self.use_ath:
-            self.time_flow_rates.append(1)  # Constant time flow rate if ATH is not applied
-            return
         current_phi = self.phi_history[-1]
         self.time_flow_rate = 1 + 0.05 * np.tanh(current_phi)
         self.time_flow_rates.append(self.time_flow_rate)
 
     def update_current_time(self):
         self.current_time += self.time_flow_rate * self.dt
+
+
 
 class QuantumParticle:
     def __init__(self, state, velocity):
@@ -82,14 +100,14 @@ class CesiumAtom:
         self.transition_frequencies.append(gamma_ath)
 
 def run_simulation(use_active_time, max_iterations=1000):
-    global_time = GlobalTime(use_ath=use_active_time)
     particles = [QuantumParticle([1.0, 0.0], np.random.uniform(-0.5, 0.5, 3) * C) for _ in range(10)]
     cesium_atoms = [CesiumAtom(np.random.uniform(0.1, 2.0)) for _ in range(5)]
+    global_time = GlobalTime(use_ath=use_active_time, particles=particles)
     intrinsic_times = []
 
     for iteration in range(max_iterations):
         energy_density = np.mean([np.linalg.norm(p.velocity)**2 for p in particles])
-        global_time.update_phi(energy_density)
+        global_time.update_phi()
         global_time.update_time_flow()
         global_time.update_current_time()
 
@@ -102,6 +120,7 @@ def run_simulation(use_active_time, max_iterations=1000):
             particle.calculate_dilated_time(global_time.dt, global_time)
 
     return cesium_atoms, intrinsic_times, global_time.time_flow_rates, [p.dilated_times for p in particles]
+
 
 
 def print_and_plot_results(use_ath, cesium_atoms, intrinsic_times, time_flow_rates, dilated_times):
