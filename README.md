@@ -123,3 +123,35 @@ The simulation not only validates the Active Time Hypothesis's theoretical under
 ![2](https://github.com/maherabdelsamie/Active-Time-Theory-Gravity3/assets/73538221/15ab646d-dca6-4e7a-848e-e8afcdc62af2)
 
  
+---
+
+# Installation
+The simulation is implemented in Python and requires the following libraries:
+- numpy
+- matplotlib
+
+You can install these libraries using pip:
+
+```bash
+pip install numpy
+pip install matplotlib
+```
+
+### Usage
+Run the simulation by executing the `main.py` file.
+
+```
+python main.py
+```
+## Google Colab
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1TU2sKUt4wv-HBYEhn0UKh5o3ehVCNOYZ?usp=sharing)
+
+## License
+
+See the LICENSE.md file for details.
+
+## Citing This Work
+
+Please cite this software using the information provided in the `CITATION.cff` file available in this repository.
+
