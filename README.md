@@ -115,4 +115,8 @@ While direct modeling of gravitational attraction is beyond the simulation's sco
 The juxtaposition of ATH and classical simulation outcomes underscores ATH's innovative capacity to replicate gravitational effects through the modulation of temporal flow rates. The distinct temporal dynamics observed under ATH, contrasted with the uniformity of classical scenarios, highlight ATH's potential to fundamentally reinterpret gravitational attraction.
 
 The simulation not only validates the Active Time Hypothesis's theoretical underpinnings but also showcases its potential to revolutionize our understanding of gravity. By demonstrating how variations in temporal flow rates and the ATH-modified Lorentz factor can manifest effects analogous to gravitational attraction, the simulation bridges a pivotal gap between abstract hypothesis and observable phenomena, paving the way for a deeper exploration of time's intrinsic properties and their profound impact on the cosmos.
+
+![1](https://github.com/maherabdelsamie/Active-Time-Theory-Gravity3/assets/73538221/1f230160-4d77-4d79-acaa-204d0c5640e3)
+![2](https://github.com/maherabdelsamie/Active-Time-Theory-Gravity3/assets/73538221/15ab646d-dca6-4e7a-848e-e8afcdc62af2)
+
  
