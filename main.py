@@ -6,12 +6,6 @@ C = 299792458  # Speed of light in m/s
 delta_t = 5
 h = 6.62607015e-34  # Planck's constant in m^2 kg / s
 
-import numpy as np
-
-# Constants for the simulation
-C = 299792458  # Speed of light in m/s
-delta_t = 5  # Delay term for phi calculation
-h = 6.62607015e-34  # Planck's constant in m^2 kg / s
 
 class GlobalTime:
     def __init__(self, use_ath=True, particles=[]):
@@ -57,8 +51,10 @@ class GlobalTime:
         self.time_flow_rates.append(self.time_flow_rate)
 
     def update_current_time(self):
-        self.current_time += self.time_flow_rate * self.dt
-
+        if self.use_ath:
+           self.current_time += self.time_flow_rate * self.dt
+        else:
+           pass   
 
 
 class QuantumParticle:
