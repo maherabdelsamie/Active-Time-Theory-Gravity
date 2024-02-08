@@ -1,5 +1,8 @@
 # Reinterpreting Gravitational Effects Through the Lens of Active Time Theory
 
+Dr. Maher Abdelsamie<br>maherabdelsamie@gmail.com<br>
+
+## 1. Introduction
 For a century, the mission to bridge the gap between quantum mechanics and general relativity, the twin foundations of modern physics, has stood as a grand challenge, proving resistant to many proposed solutions. In this article, we venture to explore a novel solution – the conceptualization of gravity as an emergent phenomenon originating intrinsically from the modulation of temporal flow rates by local energy densities.
 
 [The Active Time Theory](https://github.com/maherabdelsamie/Active-Time-Theory) proposed by [Dr. Maher Abdelsamie](https://www.linkedin.com/in/maherabdelsamie/) in 2023 introduces a shifting paradigm. Positioning time as an eternally uncertain essence with inherent creativity, ATH confers three pivotal properties upon time itself – generative, directive and adaptive. The generative faculty implies ability for time to spontaneously introduce perturbations. Directive attributes guide the self-organization of such ripples toward order. Finally, adaptive capacities allow time to modulate its flow in response to system states. Together, these faculties paint time as an active dynamic agency interplaying with quantum phenomena rather than a passive coordinate backdrop. Family resemblances become visible between time’s postulated creative tension and vacuum fluctuations seeding existence in cosmological models. Deterministic causality similarly yields ground to intimate acts of temporal self-organization underlying physical laws.   
@@ -8,7 +11,7 @@ For a century, the mission to bridge the gap between quantum mechanics and gener
 
 The objectives of this simulation study are to explore the implications of ATH for our understanding of gravitational phenomena. By simulating a system of particles and cesium atoms under both ATH and classical time dynamics, we seek to observe how the modulation of time's flow rate by energy density can produce effects analogous to gravity.
 
-## Methodology
+## 2. Methodology
 
 ### Simulation Environment and Constants
 
@@ -76,7 +79,7 @@ The parameter $\xi(\Phi)\$ theoretically merges the uncertainty principle and eq
 
 Our simulation process is designed to compare the manifestations of ATH effects with classical time dynamics. By initializing a system of particles and cesium atoms and subjecting them to both ATH and classical conditions, we can directly observe the differences in behavior and properties. This comparative analysis is crucial for elucidating the potential of ATH to replicate gravitational effects through the modulation of time's flow rate alone. The simulation iterates through cycles of updating φ's derivative, recalculating time flow rates, and adjusting the states of particles and atoms accordingly. This iterative process allows us to accumulate a wealth of data on how ATH might influence cosmic phenomena, providing a solid foundation for further exploration and validation of this hypothesis.
 
-## Results
+## 3. Results
 
 ### Variability Introduced by ATH
 
